@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#3d6b5c">
+  <title>困り感 支援記録</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app"></div>
+
+  <!-- 読み込む順番が大事：道具 → 初期データ → 保存係 → スプレッドシート係 → 画面係 -->
+  <script src="js/lib/xlsx.full.min.js"></script>
+  <script src="js/master.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/sheet.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
