@@ -162,8 +162,8 @@ function parseWorkbook(wb) {
     const badSup = supIds.filter((sid) => !supports.some((s) => s.support_id === sid));
     if (badSup.length) return errors.push(`${line}：手立てID「${badSup.join(SEP)}」が「手立て」シートにありません`);
     const resName = cell(row["評価"]);
-    const res = RESULTS.find((x) => x.name === resName);
-    if (resName && !res) return errors.push(`${line}：評価「${resName}」が分かりません（できた／少し変化した／変化しなかった／まだ試していない、または空欄）`);
+    const res = RESULTS.find((x) => x.name === resName || x.oldName === resName);
+    if (resName && !res) return errors.push(`${line}：評価「${resName}」が分かりません（${RESULTS.map((x) => x.name).join("／")}、または空欄）`);
     const tags = splitCell(row["変化"]);
     const badTag = tags.filter((t) => !CHANGE_TAGS.includes(t));
     if (badTag.length) return errors.push(`${line}：変化「${badTag.join(SEP)}」が分かりません`);

@@ -418,10 +418,12 @@ async function evaluateView(recordId) {
         </section>
         <section class="step">
           <h2>試してみてどうでしたか？</h2>
+          <p class="muted">評価は、①で見立てた「ねらった姿」にどれだけ近づいたかで選びます。ほかに見られたよい変化は、下の「見られた変化」で選べます。</p>
           <div class="choices grid">
             ${RESULTS.map((x) => `
               <button type="button" class="choice ${state.result === x.id ? "on" : ""}" data-res="${x.id}">${x.icon} ${esc(x.name)}</button>`).join("")}
           </div>
+          ${state.result === "none" && state.tags.size ? `<p class="muted">💡 よい変化にチェックが入っています。ねらった姿に少しでも近づいたなら、「🟡 ねらった姿に近づいた」の方が合うかもしれません。ねらいとは別の変化なら、このままで大丈夫です。</p>` : ""}
           <h3>見られた変化 <small>複数選べます</small></h3>
           <div class="choices grid">
             ${CHANGE_TAGS.map((t) => `
@@ -719,7 +721,7 @@ async function supportFormView(supportId) {
           <select name="strength">
             ${STRENGTHS.map((x) => `<option value="${x.id}" ${s.strength === x.id ? "selected" : ""}>${x.name}</option>`).join("")}
           </select>
-          <small>大＝教師がかなり手伝う、小＝掲示や環境の工夫程度。「できた」のあとに支援を減らす候補を出すときに使います。</small>
+          <small>大＝教師がかなり手伝う、小＝掲示や環境の工夫程度。「ねらった姿になった」のあとに支援を減らす候補を出すときに使います。</small>
         </label>
         <label>使用場面 <input name="scene" value="${esc(s.scene)}" placeholder="例：発表・スピーチ" autocomplete="off"></label>
         <label>備考 <textarea name="note" rows="2">${esc(s.note)}</textarea></label>

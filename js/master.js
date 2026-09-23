@@ -17,11 +17,12 @@ const CATEGORIES = [
   { id: "C10", name: "その他" },
 ];
 
+// 評価は「ねらった姿にどれだけ近づいたか」で選ぶ。oldName は以前の言葉（古い書き出しファイルを読み込むため）
 const RESULTS = [
-  { id: "done",    icon: "🟢", name: "できた" },
-  { id: "some",    icon: "🟡", name: "少し変化した" },
-  { id: "none",    icon: "🔴", name: "変化しなかった" },
-  { id: "not_yet", icon: "⚪", name: "まだ試していない" },
+  { id: "done",    icon: "🟢", name: "ねらった姿になった",         oldName: "できた" },
+  { id: "some",    icon: "🟡", name: "ねらった姿に近づいた",       oldName: "少し変化した" },
+  { id: "none",    icon: "🔴", name: "ねらった姿には近づかなかった", oldName: "変化しなかった" },
+  { id: "not_yet", icon: "⚪", name: "まだ試していない",           oldName: "まだ試していない" },
 ];
 
 const CHANGE_TAGS = [
